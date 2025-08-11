@@ -1,11 +1,18 @@
 from models.expense import Expense
+from utils.formatting import print_header
+from main_menu import main_menu
+import time
 
 def main():
-    expense1 = Expense("McDonalds", "09/08/2025", 6.50, "Fast Food")
-    expense2 = Expense("KFC", "06/05/2025", 7.52)
+    running = True
+    
+    while running:
 
-    print(expense1)
-    print(expense2)
+        print_header()
+        main_menu()
+        running = False
+    
+    
 
 
 if __name__ == "__main__":

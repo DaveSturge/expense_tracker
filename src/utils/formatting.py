@@ -39,7 +39,12 @@ def transition():
     print("")
     line_delay()
     print("")
-    type_text("=============<[ CUT HERE ]>=============")
+    type_text("============= [ CUT HERE ] =============")
     print("")
     line_delay()
     print("")
+
+def get_user_choice(text):
+    type_text(text, newline=False)
+    user_input = input()
+    return user_input

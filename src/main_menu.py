@@ -1,16 +1,18 @@
-from utils.formatting import print_title, print_time_date, print_footer, type_text, transition
-import time
+from utils.formatting import print_title, print_time_date, print_footer, type_text, transition, get_user_choice
+from add_expense import add_expense
 
 def main_menu():
     print_title("Main  Menu")
     print_time_date()
     print_main_menu()
-    user_choice = get_user_choice()
+    user_choice = get_user_choice("            Select Option: ")
+    print("")
+    type_text("----------------------------------------")
 
     match user_choice:
         case "1":
             transition()
-            main_menu()
+            add_expense()
         case "2":
             print("Option 2")
         case "3":
@@ -27,10 +29,3 @@ def print_main_menu():
     type_text("4. Generate Report")
     type_text("5. Exit")
     type_text("----------------------------------------")
-
-def get_user_choice():
-    type_text("            Select Option: ", newline=False)
-    user_input = input()
-    print("")
-    type_text("----------------------------------------")
-    return user_input

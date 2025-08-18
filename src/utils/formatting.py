@@ -35,11 +35,20 @@ def type_text(text, newline=True):
 def line_delay():
     time.sleep(0.3)
 
-def transition():
+def transition_to():
     print("")
     line_delay()
     print("")
     type_text("============= [ CUT HERE ] =============")
+    print("")
+    line_delay()
+    print("")
+
+def transition_from():
+    print("")
+    line_delay()
+    print("")
+    type_text("=========== [ RETURNING... ] ===========")
     print("")
     line_delay()
     print("")

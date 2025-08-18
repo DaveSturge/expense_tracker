@@ -1,4 +1,5 @@
 from utils.formatting import type_text
+from utils.categories import categories
 from datetime import datetime
 from decimal import Decimal
 
@@ -20,7 +21,7 @@ def validate_date(date):
         error = "\n----------Date cannot be empty----------"
         return None, error
 
-    valid_formats = ["%d/%m/%Y", "%d-%m-%Y", "%d/%m/%y", "%d-%m-%y", "%d/%b/%y", "%d-%b-%y", "%d %b %Y"]
+    valid_formats = ["%d/%m/%Y", "%d-%m-%Y", "%d.%m.%Y", "%d/%m/%y", "%d-%m-%y", "%d.%m.%y", "%d/%b/%y", "%d-%b-%y", "%d.%b.%y", "%d %b %Y" ]
     datetime_object = None
 
     for format in valid_formats:
@@ -61,4 +62,7 @@ def validate_cost(cost):
     return True, decimal_cost
 
 def validate_category(category):
-    pass
+    if category in categories:
+        return True
+    
+    return False

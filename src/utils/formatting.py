@@ -37,21 +37,16 @@ def line_delay():
 
 def transition_to():
     print("")
-    line_delay()
-    print("")
-    type_text("============= [ CUT HERE ] =============")
-    print("")
-    line_delay()
+    type_text(" . . . . . . . . . . . . . . . . . . . ")
     print("")
 
-def transition_from():
+def transition_from_category():
     print("")
     line_delay()
     print("")
-    type_text("=========== [ RETURNING... ] ===========")
+    type_text("---------- [ CATEGORY SAVED ] ----------")
     print("")
     line_delay()
-    print("")
 
 def get_user_choice(text):
     type_text(text, newline=False)

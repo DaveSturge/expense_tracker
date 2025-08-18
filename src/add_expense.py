@@ -1,6 +1,7 @@
-from utils.formatting import print_title, print_time_date, print_footer, type_text, transition_to, get_user_choice
+from utils.formatting import print_title, print_time_date, type_text, transition_to, get_user_choice
 from utils.validation import validate_name, validate_date, validate_cost, validate_category
 from utils.categories import enter_new_category, categories
+from models.expense import Expense
 
 def add_expense():
     print_title("Add  Expense")
@@ -9,10 +10,11 @@ def add_expense():
     expense_date = get_expense_date()
     expense_cost = get_expense_price()
     expense_category = get_expense_category()
+    
+    expense_obj = Expense(expense_name, expense_date, expense_cost, expense_category)
 
-    #print(f"Expense: {expense_name}: £{expense_cost:.2f} | {expense_date} | Category: {expense_category}")
-    
-    
+    print(expense_obj)
+
 
 def get_expense_name():
     validated = False
@@ -51,27 +53,35 @@ def get_expense_category():
     validated = False
 
     while not validated:
-        category = get_user_choice(" > Category         : ")
+        category = get_user_choice(" > Category [Opt]   : ")
         formatted_category = category.title()
 
-        validated = validate_category(formatted_category)
+        if formatted_category == "":
+            formatted_category = None
+            validated = True
+        else:
+            validated = validate_category(formatted_category)
 
         if not validated:
             type_text("\n---------Category doesn't exist---------")
             new_category = get_user_choice("      Enter new category?  (Y/N): ")
 
             if new_category.upper() == "Y":
+                print("")
                 transition_to()
                 enter_new_category()
             else:
                 user_input = get_user_choice("  View existing categories?  (Y/N): ")
 
+                print("\n")
+
                 if user_input.upper() == "Y":
                     num = 1
                     for cat in categories:
-                        print("\n")
                         type_text(f"{num}. {cat}")
                         num += 1
+
+                    transition_to()
 
     return formatted_category
     

@@ -1,4 +1,4 @@
-from utils.formatting import print_title, print_time_date, print_footer, type_text, transition, get_user_choice
+from utils.formatting import print_title, print_time_date, print_footer, type_text, transition_to, get_user_choice
 from add_expense import add_expense
 
 def main_menu():
@@ -11,7 +11,7 @@ def main_menu():
 
     match user_choice:
         case "1":
-            transition()
+            transition_to()
             add_expense()
         case "2":
             print("Option 2")

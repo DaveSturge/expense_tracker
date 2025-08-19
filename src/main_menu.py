@@ -32,9 +32,9 @@ def main_menu():
                     type_text("\n-------------Invalid Option-------------")
 
 def print_main_menu():
-    type_text(" 1. Add Expense")
-    type_text(" 2. View Expenses")
-    type_text(" 3. Search Expenses")
-    type_text(" 4. Generate Report")
-    type_text(" 5. Exit")
+    type_text(" (1) Add Expense")
+    type_text(" (2) View Expenses")
+    type_text(" (3) Search Expenses")
+    type_text(" (4) Generate Report")
+    type_text(" (5) Exit")
     type_text("----------------------------------------")

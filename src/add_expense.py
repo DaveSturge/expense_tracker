@@ -1,4 +1,4 @@
-from utils.formatting import print_title, print_time_date, type_text, transition_to, get_user_choice
+from utils.formatting import print_title, print_time_date, type_text, transition_to, get_user_choice, single_item_display
 from utils.validation import validate_name, validate_date, validate_cost, validate_category
 from utils.categories import enter_new_category, categories
 from models.expense import Expense
@@ -13,17 +13,21 @@ def add_expense():
     
     expense_obj = Expense(expense_name, expense_date, expense_cost, expense_category)
 
-    print(expense_obj)
+    type_text("\n-------------Expense Saved!-------------")
+    single_item_display(expense_obj)
+    transition_to()
+    
 
 
 def get_expense_name():
     validated = False
 
     while not validated:
-        name = get_user_choice(" > Item Name        : ")
-        validated = validate_name(name)
+        name = get_user_choice(" > Item Description : ")
+        formatted_name = name.title()
+        validated = validate_name(formatted_name)
 
-    return name.strip()
+    return formatted_name.strip()
 
 def get_expense_date():
     validated = False
@@ -51,18 +55,15 @@ def get_expense_price():
 
 def get_expense_category():
     validated = False
+    blank = False
 
     while not validated:
-        category = get_user_choice(" > Category [Opt]   : ")
+        category = get_user_choice(" > Category         : ")
         formatted_category = category.title()
 
-        if formatted_category == "":
-            formatted_category = None
-            validated = True
-        else:
-            validated = validate_category(formatted_category)
+        validated, blank = validate_category(formatted_category)
 
-        if not validated:
+        if not validated and not blank:
             type_text("\n---------Category doesn't exist---------")
             new_category = get_user_choice("      Enter new category?  (Y/N): ")
 

@@ -8,7 +8,7 @@ def validate_name(name):
         type_text("\n----------Name cannot be empty----------")
         return False
     
-    if len(name) > 18:
+    if len(name) > 25:
         type_text("\n--------Character Limit Exceeded--------")
         return False
     
@@ -62,7 +62,11 @@ def validate_cost(cost):
     return True, decimal_cost
 
 def validate_category(category):
+    if not category.strip():
+        type_text("\n--------Category cannot be empty--------")
+        return False, True
+
     if category in categories:
-        return True
+        return True, False
     
-    return False
+    return False, False

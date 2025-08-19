@@ -10,12 +10,12 @@ class Expense:
     def __str__(self):
 
         if self.category:
-            return f"Expense: {self.desc}: £{self.display_cost(self.cost)} | {self.display_date(self.date)} | Category: {self.category}"
+            return f"Expense: {self.desc}: £{self.display_cost()} | {self.display_date()} | Category: {self.category}"
 
         return f"Expense: {self.desc}: £{self.cost} | {self.date}"
     
-    def display_cost(self, cost):
-        return f"{cost:.2f}"
+    def display_cost(self):
+        return f"{self.cost:.2f}"
     
-    def display_date(self, date):
-        return date.strftime("%d-%m-%Y")
+    def display_date(self):
+        return self.date.strftime("%d-%m-%y")

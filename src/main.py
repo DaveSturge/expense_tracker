@@ -1,9 +1,10 @@
-from models.expense import Expense
 from utils.formatting import print_header
+from storage.data_manager import load_expenses
 from main_menu import main_menu
-import time
 
 def main():
+    expenses = load_expenses()
+    
     running = True
     
     while running:

@@ -1,5 +1,5 @@
 from utils.formatting import type_text
-from utils.categories import categories
+from models.categories import categories
 from datetime import datetime
 from decimal import Decimal
 

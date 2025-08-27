@@ -1,6 +1,8 @@
 from utils.formatting import print_title, print_time_date, print_footer, type_text, transition_to, get_user_choice
 from add_expense import add_expense
 
+import storage.data_manager as dm
+
 def main_menu():
     while True:
 
@@ -27,7 +29,8 @@ def main_menu():
                     break
                 case "5":
                     print_footer()
-                    break
+                    dm.save_expenses()
+                    quit()
                 case _:        
                     type_text("\n-------------Invalid Option-------------")
 

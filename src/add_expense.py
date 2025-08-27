@@ -1,10 +1,10 @@
 from utils.formatting import print_title, print_time_date, type_text, transition_to, get_user_choice, single_item_display
 from utils.validation import validate_name, validate_date, validate_cost, validate_category
 from models.categories import enter_new_category, categories
-from storage.data_manager import expenses
 from models.expense import Expense
 
-import uuid
+import storage.data_manager as dm
+
 
 def add_expense():
     print_title("Add  Expense")
@@ -16,15 +16,11 @@ def add_expense():
     
     expense_obj = Expense(expense_name, expense_date, expense_cost, expense_category)
 
-    expense_id = str(uuid.uuid4())
-
-    expenses[expense_id] = expense_obj
+    dm.add_expense(expense_obj)
 
     type_text("\n-------------Expense Saved!-------------")
     single_item_display(expense_obj)
     transition_to()
-    
-
 
 def get_expense_name():
     validated = False
@@ -92,4 +88,3 @@ def get_expense_category():
                     transition_to()
 
     return formatted_category
-    

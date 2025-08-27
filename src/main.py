@@ -1,9 +1,10 @@
 from utils.formatting import print_header
-from storage.data_manager import load_expenses
 from main_menu import main_menu
 
+import storage.data_manager as dm
+
 def main():
-    expenses = load_expenses()
+    dm.load_expenses()
     
     running = True
     

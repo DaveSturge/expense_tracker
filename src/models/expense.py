@@ -1,4 +1,5 @@
 from datetime import datetime
+from decimal import Decimal
 
 class Expense:
     def __init__(self, desc, date, cost, category=None):
@@ -19,3 +20,17 @@ class Expense:
     
     def display_date(self):
         return self.date.strftime("%d-%m-%y")
+
+    def to_dict(self):
+        return {"desc": self.desc, "date": self.display_date(), "cost": str(self.cost), "category": self.category}
+    
+    @classmethod
+    def from_dict(cls, data):
+
+        expense_date = datetime.strptime(data["date"], "%d-%m-%y").date()
+        return cls(
+            desc=data["desc"],
+            date=expense_date,
+            cost=Decimal(data["cost"]),
+            category=data["category"]
+        )

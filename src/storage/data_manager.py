@@ -22,9 +22,6 @@ def load_expenses():
     except FileNotFoundError:
         pass
 
-    for expense in expenses.values():
-        fm.single_item_display(expense)
-
 def save_expenses():
     expense_dict = {}
 

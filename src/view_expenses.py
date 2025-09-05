@@ -26,8 +26,6 @@ def view_expenses():
             quit()
         case _:
             type_text("\n-------------Invalid Option-------------")
-            
-
 
 def print_view_menu():
     type_text("----------------------------------------")

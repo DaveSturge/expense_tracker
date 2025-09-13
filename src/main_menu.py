@@ -31,6 +31,7 @@ def main_menu():
                 case "4":
                     print_footer()
                     dm.save_expenses()
+                    dm.save_categories()
                     quit()
                 case _:        
                     type_text("\n-------------Invalid Option-------------")

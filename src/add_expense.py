@@ -1,6 +1,6 @@
 from utils.formatting import print_title, print_time_date, type_text, transition_to, get_user_choice, single_item_display
 from utils.validation import validate_name, validate_date, validate_cost, validate_category
-from models.categories import enter_new_category, categories
+from models.categories import enter_new_category
 from models.expense import Expense
 
 import storage.data_manager as dm
@@ -81,7 +81,7 @@ def get_expense_category():
 
                 if user_input.upper() == "Y":
                     num = 1
-                    for cat in categories:
+                    for cat in dm.categories:
                         type_text(f"{num}. {cat}")
                         num += 1
 

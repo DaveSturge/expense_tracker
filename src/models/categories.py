@@ -1,9 +1,9 @@
 from utils.formatting import print_title, get_user_choice, transition_from_category
 
-categories = {"Rent", "Mortgage", "Utilities", "Car Insurance", "Groceries", "Fuel", "Savings", "Debt", "Misc"}
+import storage.data_manager as dm
 
 def enter_new_category():
     print_title("Enter New Category")
     new_category = get_user_choice(" > New Category     : ")
-    categories.add(new_category)
+    dm.add_category(new_category)
     transition_from_category()

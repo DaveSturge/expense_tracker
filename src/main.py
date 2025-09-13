@@ -5,6 +5,7 @@ import storage.data_manager as dm
 
 def main():
     dm.load_expenses()
+    dm.load_categories()
     
     running = True
     

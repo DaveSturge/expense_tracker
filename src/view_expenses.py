@@ -23,6 +23,7 @@ def view_expenses():
         case "3":
             print_footer()
             dm.save_expenses()
+            dm.save_categories()
             quit()
         case _:
             type_text("\n-------------Invalid Option-------------")

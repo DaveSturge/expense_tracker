@@ -1,7 +1,8 @@
 from utils.formatting import type_text
-from models.categories import categories
 from datetime import datetime
 from decimal import Decimal
+
+import storage.data_manager as dm
 
 def validate_name(name):
     if not name.strip():   
@@ -66,7 +67,7 @@ def validate_category(category):
         type_text("\n--------Category cannot be empty--------")
         return False, True
 
-    if category in categories:
+    if category in dm.categories:
         return True, False
     
     return False, False

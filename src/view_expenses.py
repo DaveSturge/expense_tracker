@@ -4,7 +4,7 @@ from add_expense import add_expense
 import storage.data_manager as dm
 
 def view_expenses():
-    print_title("View Expenses")
+    print_title("View All Expenses")
     print_time_date()
 
     for expense in dm.expenses.values():
